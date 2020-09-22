@@ -4,6 +4,9 @@ all: helm-all
 ROOT_DIR := ../..
 DOCKER_NAME := m4d-kafka
 DOCKER_TAGNAME := 0.1.0
+HELM_VALUES := \
+	--set image.hostname=${DOCKER_HOSTNAME} \
+	--set image.namespace=${DOCKER_NAMESPACE}
 
 include $(ROOT_DIR)/Makefile.env
 include $(ROOT_DIR)/.mk/docker.mk

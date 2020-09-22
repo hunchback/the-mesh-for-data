@@ -11,6 +11,10 @@ metadata:
   namespace: "default"
   labels: []
 
+image:
+  hostname: "ghcr.io"
+  namespace: "the-mesh-for-data"
+
 # copies from source
 source:
   connection:

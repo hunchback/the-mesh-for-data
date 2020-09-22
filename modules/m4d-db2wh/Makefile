@@ -4,7 +4,10 @@ all: helm-all
 ROOT_DIR := ../..
 DOCKER_NAME := m4d-db2wh
 DOCKER_TAGNAME := 0.1.0
-HELM_VALUES := --values values.yaml.sample
+HELM_VALUES := \
+	--values values.yaml.sample \
+	--set image.hostname=${DOCKER_HOSTNAME} \
+	--set image.namespace=${DOCKER_NAMESPACE}
 
 include $(ROOT_DIR)/Makefile.env
 include $(ROOT_DIR)/.mk/docker.mk

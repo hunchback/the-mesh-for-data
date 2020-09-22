@@ -167,6 +167,13 @@ func (r *BlueprintReconciler) reconcile(ctx context.Context, log logr.Logger, bl
 			"labels":    blueprint.Labels,
 		}
 
+		hostname := os.Getenv("DOCKER_HOSTNAME")
+		namespace := os.Getenv("DOCKER_NAMESPACE")
+		args["image"] = map[string]interface{}{
+			"hostname":  hostname,
+			"namespace": namespace,
+		}
+
 		// Process templates with arguments
 		for _, resource := range templateSpec.Resources {
 			if blueprint.DeletionTimestamp != nil {
