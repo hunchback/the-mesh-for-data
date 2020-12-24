@@ -9,4 +9,5 @@ run-integration-tests:
 	kubectl create namespace m4d-system
 	cd ../third_party/cert-manager && $(MAKE) deploy deploy-wait
 	cd ../third_party/vault && $(MAKE) deploy wait_for_vault
+	cd ../secret-provider && $(MAKE) configure-vault
 	helm install -g m4d
